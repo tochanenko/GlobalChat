@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: global-chat
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/global_chat
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+  flyway:
+    enabled: true
