@@ -13,9 +13,7 @@ import org.springframework.security.oauth2.jwt.*;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.time.Instant;
 import java.util.Base64;
-import java.util.Objects;
 
 @Configuration
 public class JwtConfig {

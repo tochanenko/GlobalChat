@@ -23,9 +23,9 @@ import java.util.Locale;
 @Service
 public class LoginService {
 
-    public final AuthenticationManager authenticationManager;
-    public final UserRepository userRepository;
-    public final JwtEncoder jwtEncoder;
+    private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
+    private final JwtEncoder jwtEncoder;
 
     public LoginService(
             AuthenticationManager authenticationManager,
