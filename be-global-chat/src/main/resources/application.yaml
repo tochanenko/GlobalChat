@@ -15,3 +15,7 @@ spring:
 
   flyway:
     enabled: true
+
+app:
+  jwt:
+    secret-base64: ${JWT_SECRET_BASE64}

@@ -36,4 +36,5 @@ public class AppUser {
 
     public UUID getId() { return this.id; }
     public String getUsername() { return this.username; }
+    public String getPasswordHash() { return this.passwordHash; }
 }
