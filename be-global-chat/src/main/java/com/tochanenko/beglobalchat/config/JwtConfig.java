@@ -13,7 +13,9 @@ import org.springframework.security.oauth2.jwt.*;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.time.Instant;
 import java.util.Base64;
+import java.util.Objects;
 
 @Configuration
 public class JwtConfig {
@@ -57,10 +59,20 @@ public class JwtConfig {
             return OAuth2TokenValidatorResult.success();
         };
 
+        OAuth2TokenValidator<Jwt> expirationValidator = jwt -> {
+            if (jwt.getExpiresAt() == null) {
+                return OAuth2TokenValidatorResult.failure(
+                        new OAuth2Error("invalid_token", "Invalid token", null)
+                );
+            }
+            return OAuth2TokenValidatorResult.success();
+        };
+
         decoder.setJwtValidator(new DelegatingOAuth2TokenValidator<>(
                 issuerValidator,
                 audienceValidator,
-                subjectValidator
+                subjectValidator,
+                expirationValidator
         ));
 
         return decoder;
